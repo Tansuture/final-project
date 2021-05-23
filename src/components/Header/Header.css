@@ -1,0 +1,27 @@
+
+.list {
+    list-style: none;
+    display: flex;
+    text-transform: uppercase;
+
+}
+.link{
+    text-decoration: none;
+    color:black;
+}
+.list li{
+    margin: 20px 20px;
+    font-size:24px;
+   
+    
+}
+
+.header{
+    display: flex;
+    margin-left: 20%;
+    justify-content: space-between;
+  
+}
+.header-img{
+    width: 100px;
+}

@@ -1,25 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import ReactDom from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import {Header} from './components/Header'
+import { MainPage } from './components/MainPage';
+import { SignIn } from './components/SignInModal';
+import { SignUp } from './components/SingUp';
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import './user.css'
 
-import { UsersList } from './components/UsersList';
-import { UserCreate } from './components/UserCreate';
 
-export class App extends Component {
-  render() {
+export const App =()=> {
+ const [active,setActive]=useState(true)
     return (
-      <div>
-        <Switch>
-          <Route path="/" component={UsersList} exact={true} />
-          <Route path="/create" component={UserCreate} exact={true} />
-        </Switch>
+      <>
+      <div className="wrapper">
+       <Header setActive={setActive} active={active}/>
+        <SignIn setActive={setActive} active={active} />
+        
+        <Route  exact path ="/" component={MainPage}/>
+        <Route path="/signUp"component={SignUp} />
       </div>
-    );
+  
+      </>
+    )
   }
-}
+
 
 ReactDom.render(
-  <BrowserRouter><App /></BrowserRouter>,
+  <BrowserRouter>
+    <App />
+   </BrowserRouter>,
   document.getElementById('root'),
 );
