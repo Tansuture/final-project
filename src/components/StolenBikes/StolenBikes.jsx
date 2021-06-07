@@ -4,7 +4,7 @@ import './StolenBikes.css'
 import {Link} from 'react-router-dom'
 import moment from 'moment'
 
-
+//компонент для вывода списка сообщений
 export const StolenBikes = () => {
     const [data,setData] = useState([])
     const [loading,setLoading] = useState(false)

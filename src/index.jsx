@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Redirect, Route} from 'react-router-dom';
 import {Header} from './components/Header'
 import { MainPage } from './components/MainPage';
 import { SignIn } from './components/SignInModal';
@@ -13,6 +13,8 @@ import { Report } from './components/Report';
 import { StolenBikes } from './components/StolenBikes';
 import { InDetail } from './components/Detail';
 import { Employess } from './components/Employess';
+import { EmployeeList } from './components/EmployeeList';
+
 
 
 
@@ -26,6 +28,10 @@ const [email,setEmail]=useState('')
 const [password,setPassword]=useState('')
 const [data,setData]=useState(null)
 const [isError, setIsError] = useState(false);
+
+// if(isLogin){
+//   <Redirect to ="/"></Redirect>
+// }
 
 const handleSubmit=(e)=>{
     e.preventDefault()
@@ -74,6 +80,7 @@ const headers={
         <Route path="/stolen" component={StolenBikes}/>
         <Route path="/detail" component={InDetail}/>
         <Route path="/employess" component={Employess}/>
+        <Route path = "/list" component={EmployeeList}/>
        
       </div> 
       </>

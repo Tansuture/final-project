@@ -11,8 +11,9 @@ import './Report.css'
     const[color,setColor]=useState('')
     const [type,setType]=useState('')
     const [ownerFullName,setName]=useState('')
+    const [data,setData]=useState(null)
    
-    const[data,setData]=useState(null)
+
 
     const handleChange=(e)=>{
     

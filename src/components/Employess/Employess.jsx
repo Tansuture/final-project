@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 export const Employess = ()=>{
     const[isSubmit,setSubmit]=useState()
-    const [data,setData]=useState()
+    const [data,setData]=useState(null)
     const [name,setName]=useState("")
     const [surName,setSurName]=useState("")
     const [email,setEmail]=useState("")
@@ -19,14 +19,20 @@ export const Employess = ()=>{
             lastName:surName,
             email,
             password,
-            clientId:"dGFuc3V0dXJlbXVyYXRvdmFAZ21haWwuY29t"
+            clientId:"dGFuc3V0dXJlbXVyYXRvdmFAZ21haWwuY29t",
+            approved: false,
         }
         axios.post('http://84.201.129.203:8888/api/officers',data,{
             headers:{
                 Authorization: 'Bearer '+localStorage.getItem('token')
             }
-        }).then((res)=>{
-          console.log('hell')
+        }).then(res=>{
+            setData(res.data)
+            setName('')
+            setPassword('')
+            setEmail('')
+            setSurName('')
+            setSubmit(true)
         })
     }
 
@@ -51,8 +57,8 @@ export const Employess = ()=>{
 
               
         <button type="submit" className="signUp-btn">Отправить</button>
-        {/* {isSubmit && <small className="report-text">Отправлено.</small>} */}
-        <Link to="/">Список сотрудников</Link>
+        {isSubmit && <small className="report-text">Отправлено.</small>}
+        <Link to="/list">Список сотрудников</Link>
         </form>
         </div>
         
