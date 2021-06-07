@@ -13,7 +13,7 @@
 .modal-window.active {
     transform: scale(1);
 }
-form {
+.signIn{
 
     width: 340px;
     height: 300px;
@@ -35,7 +35,7 @@ input {
     border-radius: 2px;
 }
 
-button {
+.btn {
     outline: none;
     float: right;
     margin-right: 20px;
@@ -68,4 +68,10 @@ button {
 }
 .modal-text{
     text-align: center;
+}
+
+.text-danger{
+    color:red;
+    font-weight: bold;
+    padding-left: 5%;
 }

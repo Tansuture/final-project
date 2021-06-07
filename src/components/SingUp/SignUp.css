@@ -1,13 +1,34 @@
 .signUp-text {
     margin-top: 40px;
-    margin-bottom: 40px;
     display: inline-block;
-    border: 2px solid #00a4b7;
     background: #fff;
-   
     text-transform: uppercase;
     padding: 15px 40px;
     color: #3e4d57;
     position: relative;
+    left:35%;
+}
+.signUp{
+    width: 340px;
+    height: 340px;
+    margin: 0 auto;
+    background: #fff;
+    border: 2px solid #00a4b7;
+    padding-bottom: 18px;
+
+}
+
+.signUp-btn{
+    background-color: #00a4b7;
+    border: 1px solid white;
+    padding: 12px 25px;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 0;
+    margin-top: 10px;
+   
+
+   width: 100%;
+    display: block;
 
 }

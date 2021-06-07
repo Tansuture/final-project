@@ -1,0 +1,1 @@
+export {InDetail} from './InDetail.jsx'

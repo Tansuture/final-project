@@ -1,31 +1,50 @@
-
 import './Header.css'
-import React from 'react'
+import React, {useContext} from 'react'
 import logo from './img/logo.png'
-import { Link } from 'react-router-dom'
-  export const Header = ({active,setActive}) => {
-    return ( 
-    <> 
-    <div className="header">
+import {Link} from 'react-router-dom'
+import store from '../../data/store'
+
+export const Header = ({active, setActive}) => {
     
-    <ul className="list">
-        <li>
-            <Link  className="link" to="/">Главная</Link>
-        </li>
-        <li>
-        <Link className="link" >FAQ</Link>
-        </li>
-        <img src={logo} className="header-img"/>
-        <li>
-        <Link className="link">Контакты</Link>
-        </li>
-        <li>
-        <Link  className="link" onClick={()=>setActive(true)}>Вход</Link>
-        </li>
-       
-    </ul>
-    </div>
-     </>
+    const {isLogin, setIsLogin} = useContext(store)
+
+    const handleLogOut=()=>{
+        setIsLogin(false)
+        localStorage.clear()
+    }
+    let button;
+    if (isLogin) {
+        button = (
+            <li>
+                <Link className="link" onClick={handleLogOut} to="/">Выход</Link>
+            </li>
+        )
+    } else 
+        button = (
+            <li>
+                <Link className="link" onClick={() => setActive(true)}>Вход</Link>
+            </li>
+        )
+    return (
+        <div>
+            <div className="header">
+                <ul className="list">
+               
+                    <li>
+                        <Link className="link" to="/">Главная</Link>
+                    </li>
+                    <li>
+                        <a className="link">FAQ</a>
+                    </li>
+                    <img src={logo} className="header-img"/>
+    
+                    <li>
+                        <Link className="link">Контакты</Link>
+                    </li>
+                 
+                    {button}
+                </ul>
+            </div>
+        </div>
     )
 }
-
